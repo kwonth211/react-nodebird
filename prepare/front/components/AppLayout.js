@@ -6,12 +6,15 @@ import { useState } from "react";
 import UserProfile from "../components/UserProfile";
 import LoginForm from "../components/LoginForm";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const SearchInput = styled(Input.Search)`
   vertical-align: middle;
 `;
 const AppLayout = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useSelector(
+    (state) => state.user.isLoggedIn
+  );
   return (
     <div>
       <Menu mode="horizontal">
